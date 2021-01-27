@@ -1,3 +1,10 @@
+openNDS (7.0.1-FPT) stable; urgency=medium
+
+  * This version contains fix
+  * Fix - On startup, call iptables_fw_destroy before doing any other setup [bluewavenet]
+
+ -- Nguyen Quang Minh <minhnq31@fpt.com.vn>  Wed, 27 Jan 2021 13:33:33 +0700
+
 openNDS (7.0.1-1) stable; urgency=medium
 
   * This version contains fixes and some minor updates
