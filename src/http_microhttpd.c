@@ -1009,7 +1009,7 @@ static char *construct_querystring(t_client *client, char *originurl, char *quer
 					config->url_encoded_gw_name,
 					hash,
 					config->gw_address,
-					config->gw_mac,
+					config->url_encoded_gw_name,
 					clientif,
 					msg
 				);
@@ -1031,7 +1031,7 @@ static char *construct_querystring(t_client *client, char *originurl, char *quer
 			config->gw_name, QUERYSEPARATOR,
 			client->token, QUERYSEPARATOR,
 			config->gw_address, QUERYSEPARATOR,
-			config->gw_mac, QUERYSEPARATOR,
+			config->gw_name, QUERYSEPARATOR,
 			config->authdir, QUERYSEPARATOR,
 			originurl, QUERYSEPARATOR,
 			clientif,
