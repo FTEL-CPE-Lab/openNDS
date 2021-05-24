@@ -124,7 +124,7 @@ generate_uci_config() {
   for option in preauth binauth fasport faskey fasremotefqdn fasremoteip faspath fas_secure_enabled \
     walledgarden_fqdn_list walledgarden_port_list fas_custom_parameters_list\
     login_option_enabled use_outdated_mhd unescape_callback_enabled daemon \
-    allow_legacy_splash debuglevel maxclients gatewayname gatewayinterface gatewayiprange \
+    allow_legacy_splash debuglevel maxclients gatewayinterface gatewayiprange \
     gatewayaddress gatewayport webroot splashpage statuspage \
     sessiontimeout preauthidletimeout authidletimeout checkinterval \
     setmss mssvalue trafficcontrol ratecheckwindow downloadrate uploadrate downloadquota uploadquota \
@@ -137,6 +137,15 @@ generate_uci_config() {
       addline "$option $val"
     fi
   done
+
+  # FTEL Added
+  hwaddr=$(cat /sys/class/net/eth0/address)
+  if [ -z "$hwaddr" ]
+  then
+    hwaddr='ERROR'
+  fi
+
+  addline "gatewayname $hwaddr"
 
   config_get download "$cfg" downloadlimit
   config_get upload "$cfg" uploadlimit
